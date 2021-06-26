@@ -1,11 +1,50 @@
-import React from "react";
+import React, { useState } from "react";
+import Form from "./Form";
 
 const List = (props) => {
+  const [edit, setEdit] = useState({
+    id: null,
+    value: "",
+  });
+
+  const onEditClick = (newValue) => {
+    newValue.preventDefault();
+    //args passing back to Main.js
+    props.onUpdateTodo(edit.id, edit.value);
+
+    setEdit({
+      id: null,
+      value: "",
+    });
+  };
+  const onEditChange = (event) => {
+    setEdit({
+      id: edit.id,
+      value: event.target.value,
+    });
+  };
+
+  if (edit.id) {
+    return (
+      <Form
+        editValue={edit}
+        onEditClick={onEditClick}
+        onEditChange={onEditChange}
+      />
+    );
+  }
+
   return props.list.map((item) => {
     const renderButton = () => {
+      //console.log(item.id);
       if (item.id) {
         return (
-          <button onClick={() => props.onDeleteClick(item.id)}>Delete</button>
+          <div>
+            <button onClick={() => props.onDeleteClick(item.id)}>Delete</button>
+            <button onClick={() => setEdit({ id: item.id, value: item.text })}>
+              Edit
+            </button>
+          </div>
         );
       }
       return;
