@@ -44,11 +44,33 @@ class Main extends Component {
     }
   };
 
+  //callback for List.js, edit hook arguments
+  onUpdateTodo = (index, newValue) => {
+    //Do not include the old value of updated todo - probably bug
+    const oldValues = this.state.list.filter((todo) => todo.id !== index);
+
+    //after clicking edit, showing the new value with the same id
+    if (newValue !== "") {
+      this.setState({
+        list: [
+          ...oldValues,
+          {
+            text: newValue,
+            id: index,
+          },
+        ],
+      });
+    }
+
+    // if (index && newValue) {
+    //   console.log(index + newValue);
+    // }
+  };
+
   //DELETE FUNCTION FOR TODOs
 
   onDeleteClick = (index) => {
-    const deletedTodo = [...this.state.list].filter((todo) => {
-      console.log(todo.id);
+    const deletedTodo = this.state.list.filter((todo) => {
       return index !== todo.id;
     });
     this.setState({
@@ -66,7 +88,11 @@ class Main extends Component {
           onFormSubmit={this.onFormSubmit}
           value={term}
         />
-        <List list={list} onDeleteClick={this.onDeleteClick} />
+        <List
+          list={list}
+          onDeleteClick={this.onDeleteClick}
+          onUpdateTodo={this.onUpdateTodo}
+        />
       </div>
     );
   }
