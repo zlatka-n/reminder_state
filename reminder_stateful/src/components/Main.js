@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Form from "./Form";
 import List from "./List";
+
 class Main extends Component {
   constructor(props) {
     super(props);
@@ -43,6 +44,18 @@ class Main extends Component {
     }
   };
 
+  //DELETE FUNCTION FOR TODOs
+
+  onDeleteClick = (index) => {
+    const deletedTodo = [...this.state.list].filter((todo) => {
+      console.log(todo.id);
+      return index !== todo.id;
+    });
+    this.setState({
+      list: deletedTodo,
+    });
+  };
+
   render() {
     const { term, list } = this.state;
     return (
@@ -53,7 +66,7 @@ class Main extends Component {
           onFormSubmit={this.onFormSubmit}
           value={term}
         />
-        <List list={list} />
+        <List list={list} onDeleteClick={this.onDeleteClick} />
       </div>
     );
   }

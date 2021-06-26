@@ -1,18 +1,19 @@
 import React from "react";
 
 const List = (props) => {
-  //console.log(props.list);
-
   return props.list.map((item) => {
     const renderButton = () => {
-      if (item.id !== null) {
-        return <button>Delete</button>;
+      if (item.id) {
+        return (
+          <button onClick={() => props.onDeleteClick(item.id)}>Delete</button>
+        );
       }
       return;
     };
+
     return (
       <div key={item.id}>
-        {item.text}
+        <div>{item.text}</div>
         <div>{renderButton()}</div>
       </div>
     );
