@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Form from "./Form";
+import { TiDelete, TiEdit } from "react-icons/ti";
 
 const List = (props) => {
   const [edit, setEdit] = useState({
@@ -40,10 +41,10 @@ const List = (props) => {
       if (item.id) {
         return (
           <div>
-            <button onClick={() => props.onDeleteClick(item.id)}>Delete</button>
-            <button onClick={() => setEdit({ id: item.id, value: item.text })}>
-              Edit
-            </button>
+            <TiDelete onClick={() => props.onDeleteClick(item.id)} />
+            <TiEdit
+              onClick={() => setEdit({ id: item.id, value: item.text })}
+            />
           </div>
         );
       }
