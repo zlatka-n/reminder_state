@@ -10,18 +10,30 @@ const Form = ({
 }) => {
   if (editValue) {
     return (
-      <form onSubmit={onEditClick}>
-        <input value={editValue.value} onChange={onEditChange}></input>
-        <button>Update</button>
-      </form>
+      <div className="updateForm">
+        <form onSubmit={onEditClick}>
+          <input
+            className="input"
+            value={editValue.value}
+            onChange={onEditChange}
+          ></input>
+          <button className="addBtn">Update</button>
+        </form>
+      </div>
     );
   }
 
   return (
-    <form onSubmit={onFormSubmit}>
-      <input onChange={onInputChange} value={value.text}></input>
-      <button>Add</button>
-    </form>
+    <div className="addForm">
+      <form onSubmit={onFormSubmit}>
+        <input
+          className="input"
+          onChange={onInputChange}
+          value={value.text}
+        ></input>
+        <button className="addBtn">Add</button>
+      </form>
+    </div>
   );
 };
 

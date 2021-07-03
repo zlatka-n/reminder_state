@@ -36,7 +36,7 @@ class Main extends Component {
         list: [
           {
             text: this.state.term.text,
-            id: Math.floor(Math.random() * 1000),
+            id: Math.floor(Math.random() * 10000),
           },
           ...this.state.list,
         ],
@@ -82,7 +82,7 @@ class Main extends Component {
     const { term, list } = this.state;
     return (
       <div>
-        <h3>Add your todos</h3>
+        <h3>To do List</h3>
         <Form
           onInputChange={this.onInputChange}
           onFormSubmit={this.onFormSubmit}

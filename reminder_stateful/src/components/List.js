@@ -41,10 +41,14 @@ const List = (props) => {
       if (item.id) {
         return (
           <div>
-            <TiDelete onClick={() => props.onDeleteClick(item.id)} />
-            <TiEdit
-              onClick={() => setEdit({ id: item.id, value: item.text })}
-            />
+            <div className="delete">
+              <TiDelete onClick={() => props.onDeleteClick(item.id)} />
+            </div>
+            <div className="edit">
+              <TiEdit
+                onClick={() => setEdit({ id: item.id, value: item.text })}
+              />
+            </div>
           </div>
         );
       }
@@ -52,9 +56,9 @@ const List = (props) => {
     };
 
     return (
-      <div key={item.id}>
-        <div>{item.text}</div>
-        <div>{renderButton()}</div>
+      <div key={item.id} className="list">
+        <div className="item">{item.text}</div>
+        <div className="icon">{renderButton()}</div>
       </div>
     );
   });
