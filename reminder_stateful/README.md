@@ -6,7 +6,7 @@ This was one of my first react projects, after I finished Udemy course. At that 
 
 do CRUD operations for todos
 
-You can view the todo app here https://todo-redux-zlatka-n.vercel.app/. Colors were chosen from Adobe color pallete.
+You can view the todo app here https://reminder-stateful.vercel.app/. Colors were chosen from Adobe color pallete.
 
 ## Tech stack (libraries) used:
 
