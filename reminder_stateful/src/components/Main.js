@@ -53,11 +53,11 @@ class Main extends Component {
     if (newValue !== "") {
       this.setState({
         list: [
-          ...oldValues,
           {
             text: newValue,
             id: index,
           },
+          ...oldValues,
         ],
       });
     }

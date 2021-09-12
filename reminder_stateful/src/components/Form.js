@@ -12,7 +12,7 @@ const Form = ({
   if (editValue) {
     return (
       <div className="updateForm">
-        <form onSubmit={onEditClick}>
+        <form onSubmit={onEditClick} className="form">
           <input
             className="input"
             value={editValue.value}
