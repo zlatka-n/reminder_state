@@ -1,0 +1,41 @@
+.list:last-child {
+  margin-bottom: 20px;
+  background: rgba(255, 255, 255, 0);
+}
+
+.list {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  color: white;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.list:last-child {
+  margin-bottom: 40px;
+}
+
+.item {
+  width: 60%;
+  font-size: 1.8em;
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  font-size: 1.5em;
+}
+
+.delete,
+.edit {
+  padding: 5px 5px 5px 5px;
+  color: white;
+}
+
+.check input {
+  width: 18px;
+  height: 18px;
+}

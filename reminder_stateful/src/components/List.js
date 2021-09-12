@@ -1,12 +1,19 @@
 import React, { useState } from "react";
 import Form from "./Form";
 import { TiDelete, TiEdit } from "react-icons/ti";
-
+import "../css/List.css";
 const List = (props) => {
   const [edit, setEdit] = useState({
     id: null,
     value: "",
   });
+
+  const onEditChange = (event) => {
+    setEdit({
+      id: edit.id,
+      value: event.target.value,
+    });
+  };
 
   const onEditClick = (newValue) => {
     newValue.preventDefault();
@@ -16,12 +23,6 @@ const List = (props) => {
     setEdit({
       id: null,
       value: "",
-    });
-  };
-  const onEditChange = (event) => {
-    setEdit({
-      id: edit.id,
-      value: event.target.value,
     });
   };
 
@@ -40,7 +41,7 @@ const List = (props) => {
       //console.log(item.id);
       if (item.id) {
         return (
-          <div>
+          <div className="icon">
             <div className="delete">
               <TiDelete onClick={() => props.onDeleteClick(item.id)} />
             </div>

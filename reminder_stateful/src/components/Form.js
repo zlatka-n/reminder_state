@@ -1,4 +1,5 @@
 import React from "react";
+import "../css/Form.css";
 
 const Form = ({
   onInputChange,
@@ -25,7 +26,7 @@ const Form = ({
 
   return (
     <div className="addForm">
-      <form onSubmit={onFormSubmit}>
+      <form onSubmit={onFormSubmit} className="form">
         <input
           className="input"
           onChange={onInputChange}

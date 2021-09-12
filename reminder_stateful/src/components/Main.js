@@ -81,8 +81,8 @@ class Main extends Component {
   render() {
     const { term, list } = this.state;
     return (
-      <div>
-        <h3>To do List</h3>
+      <div className="todo-container">
+        <h1>To do List</h1>
         <Form
           onInputChange={this.onInputChange}
           onFormSubmit={this.onFormSubmit}
